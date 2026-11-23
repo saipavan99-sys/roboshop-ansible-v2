@@ -68,7 +68,7 @@
      record: "{{ domain_name }}"
      type: A
      ttl: 1
-    when: action == "delete" and item.item == "frontend"
+    when: action == "delete"
   
   - name: delete ec2 instances
     amazon.aws.ec2_instance:
