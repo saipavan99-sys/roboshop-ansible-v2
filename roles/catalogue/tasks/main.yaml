@@ -1,6 +1,6 @@
 - name: Print variables
   debug:
-    msg: "COURSE: {{ course }},DURATION: {{ duration }},LEARNER: {{ learner }}"
+    msg: "COURSE: {{ course }}, DURATION: {{ duration }}, LEARNER: {{ learner }}"
 # calling common file for app setup
 - name: application setup
   include_role: 
