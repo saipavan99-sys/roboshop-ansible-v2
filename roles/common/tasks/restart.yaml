@@ -1,0 +1,5 @@
+- name: Start and enable catalogue
+  service:
+    name: "{{ component }}"
+    state: restarted
+    enabled: yes

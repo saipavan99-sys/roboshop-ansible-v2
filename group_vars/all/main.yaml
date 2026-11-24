@@ -6,3 +6,17 @@ ansible_password: "{{ vault_ansible_password }}"
 mysql_root_password: "{{ vault_mysql_root_password }}"
 rabbitmq_user: "{{ vault_rabbitmq_user }}"
 rabbitmq_password: "{{ vault_rabbitmq_password }}"
+mongodb_host: mongodb.saipavan.store
+redis_host: redis.saipavan.store
+mysql_host: mysql.saipavan.store
+rabbitmq_host: rabbitmq.saipavan.store
+catalogue_host: catalogue.saipavan.store
+user_host: user.saipavan.store
+cart_host: cart.saipavan.store
+shipping_host: shipping.saipavan.store
+payment_host: payment.saipavan.store
+
+# shipping_db_user: shipping
+# shipping_db_password: RoboShop@1
+# rabbitmq_user: roboshop
+# rabbitmq_password: roboshop123
