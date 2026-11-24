@@ -10,7 +10,7 @@
 # calling common role for install nodejs
 - name: nodejs setup
   include_role: 
-    name: commons
+    name: common
     tasks_from: nodejs
 
 # calling common role for systemd-setup
