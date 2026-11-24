@@ -1,0 +1,19 @@
+- name: installing nginx
+  include_role:
+    name: common
+    tasks_from: nginx
+
+- name: html setup
+  include_role:
+    name: common
+    tasks_from: html-setup
+
+- name: copy roboshop config
+  template:
+    src: roboshop.conf.j2
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name: restart frontend
+  service:
+    name: nginx
+    state: restarted      

@@ -1,0 +1,28 @@
+- name: Find all files and subdirectories
+  ansible.builtin.find:
+    paths: /usr/share/nginx/html/
+    recurse: true
+    file_type: any
+    hidden: true
+  register: directory_contents
+
+- name: print directory content
+  debug:
+    msg: "{{ directory_contents }}"  
+
+- name: Remove found items
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: absent
+  loop: "{{ directory_contents.files }}"
+
+- name: download frontend application
+  get_url:
+    url: https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/frontend-v4.zip
+    dest: /tmp/frontend.zip
+
+- name: unzip frontend
+  unarchive:
+    src: /tmp/frontend.zip
+    dest: /usr/share/nginx/html/
+    remote_src: yes  
