@@ -1,0 +1,35 @@
+- name: Create roboshop system user
+  user:
+    name: roboshop
+    create_home: false
+    home: /app
+    system: true
+    shell: /sbin/nologin
+    comment: "roboshop system user"   
+
+- name: Remove existing app directory
+  file:
+    path: /app
+    state: absent
+
+- name: Remove {{ component }}.zip
+  file:
+    path: /tmp/{{ component }}.zip
+    state: absent   
+
+# While creating must and should state == directory otherwise it take as file
+- name: creating app directory
+  file:
+    path: /app
+    state: directory
+
+- name: Downloading {{ component }} application
+  get_url:
+    url: https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/{{ component }}-v4.zip
+    dest: /tmp/{{ component }}.zip
+
+- name: unzip {{ component }}
+  unarchive:
+    src: /tmp/{{ component }}.zip
+    dest: /app
+    remote_src: yes

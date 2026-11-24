@@ -3,7 +3,7 @@
     src: rabbitmq.repo
     dest: /etc/yum.repos.d/rabbitmq.repo
 
-- name:
+- name: install rabbitmq server
   dnf:
     name: 
       - erlang
