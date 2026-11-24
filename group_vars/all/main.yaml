@@ -16,7 +16,5 @@ cart_host: cart.saipavan.store
 shipping_host: shipping.saipavan.store
 payment_host: payment.saipavan.store
 
-# shipping_db_user: shipping
-# shipping_db_password: RoboShop@1
-# rabbitmq_user: roboshop
-# rabbitmq_password: roboshop123
+shipping_db_user: "{{ vault_shipping_db_user }}"
+shipping_db_password: "{{ vault_shipping_db_password }}"
